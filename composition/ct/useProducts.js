@@ -281,6 +281,8 @@ const useProducts = ({
         return;
       }
       //missing data will break sunrise
+      let productId = data?.productProjectionSearch?.results[0]?.productId;
+      localStorage.setItem('PRODUCT', productId);
       setProducts(
         data.productProjectionSearch.results.map(
           (item) => ({

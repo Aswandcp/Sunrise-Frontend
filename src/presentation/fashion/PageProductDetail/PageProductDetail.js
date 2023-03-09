@@ -6,6 +6,7 @@ import ProductInfo from './ProductInfo/ProductInfo.vue';
 
 export default {
   name: 'PageProductDetail',
+        
   setup() {
     const { allVariants, currentVariant, sku, error } =
       useProductTools(true);

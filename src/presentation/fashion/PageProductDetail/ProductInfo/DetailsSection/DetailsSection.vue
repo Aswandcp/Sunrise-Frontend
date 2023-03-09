@@ -1,6 +1,14 @@
+
+
 <style src="./DetailsSection.scss" lang="scss" scoped></style>
 <i18n src="./DetailsSection.txt" lang="yaml"></i18n>
-<script src="./DetailsSection.js"></script>
+<script src="./DetailsSection.js">
+
+
+
+
+</script>
+
 
 <template>
   <div
@@ -58,9 +66,133 @@
               :class="{ collapsed: !expanded[1] }"
             >
               {{ t('deliveryReturns') }}
+              
             </a>
           </h4>
         </div>
+      <div>
+  </div>
+   <div class="panel pro-dec-accordion">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a
+              href="#" 
+              @click.prevent="toggle(2)"
+              :class="{ collapsed: !expanded[2] }"
+              data-test="product-attributes-accordion"
+            >
+              {{ t('Reviews') }}
+            </a>
+          </h4>
+        </div> 
+        <div
+          data-parent="#accordion1"
+          id="pro-dec-accordion3"
+          class="
+            product-description-wrapper
+            panel-collapse
+            collapse 
+          "
+          :class="{ show: expanded[2] }"
+        > 
+        <tbody>
+          <tr>
+            <td>{{ user.review }}</td>
+            <td>{{ user.rating }}</td>
+          </tr>
+        </tbody>
+         <!-- <div class="panel-body">
+            <ul>
+      <li v-for="reviews in reviews" :key="reviews.customerId">
+        <div>Comment: {{ reviews.comment }}</div>
+        <div>Rating: {{ reviews.rating }}</div>
+
+      </li> 
+    </ul> -->
+<!--            
+          </div> 
+          <div class="tabs">
+        <div class="tabLinks">
+            <span class="tab" v-for="(tab,index) in tabs"
+             :key="index"
+             @click="selectedTabs = tab"
+             :class="{activeTab: selectedTabs === tab}">
+             {{ tab }}
+            </span>
+        </div>
+        <div class="tabContent">
+            <div class="reviews" v-show="selectedTabs === 'Reviews'">  -->
+      <!-- <h2>Reviews</h2>  -->
+      <!-- <p v-if="!reviews.length">There are no reviews yet....</p>
+      <ul> 
+        <li v-for="(user, index) in user" :key="index">
+        <p>{{ user.reviews }}</p>
+        <span>{{ this.user.review }} <strong>Rating:</strong>{{ this.user.rating }}</span>
+        </li> 
+      </ul>
+    </div> -->
+    <!-- <product-review v-show="selectedTabs === 'Make a Review' "></product-review> -->
+            
+        <!-- </div>
+          
+        </div>  -->
+    </div>
+
+ </div>
+   
+   <div class="panel pro-dec-accordion">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a
+              href="#"
+              @click.prevent="toggle(3)"
+              :class="{ collapsed: !expanded[3] }"
+              data-test="product-attributes-accordion"
+            > 
+              {{ t('Add Reviews') }}
+            </a>
+          </h4>
+        </div>
+        <div
+          data-parent="#accordion1"
+          id="pro-dec-accordion3"
+          class="
+            product-description-wrapper
+            panel-collapse
+            collapse
+          "
+          :class="{ show: expanded[3] }"
+        >
+          <div class="panel-body">
+            
+          </div>
+        </div>
+      </div> 
+
+
+        <div>
+          <form class="review-form" >
+            <div class="row"> 
+              <label for="review">Comment:</label>
+              <textarea id="review" v-model="reviews.review"></textarea>
+          </div>
+          <div class="row">
+            <label for="rating">Rating:</label>
+            <select id="rating" v-model.number="reviews.rating">
+              <option>5</option>
+              <option>4</option>
+              <option>3</option>
+              <option>2</option>
+              <option>1</option>
+            </select>
+          </div>
+          <div class="row">
+            <button type="button" v-on:click="addReview" >Submit</button>
+            <!-- @click="handler" // after button put this --> 
+          </div>
+        </form>
+        
+    </div>
         <div
           data-parent="#accordion1"
           id="pro-dec-accordion2"
@@ -78,7 +210,12 @@
             </ul>
           </div>
         </div>
+        
       </div>
     </div>
+
+  
   </div>
+
+
 </template>

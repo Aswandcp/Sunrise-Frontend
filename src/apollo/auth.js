@@ -87,7 +87,8 @@ export const fetchWithToken = (url, options) => {
         return response;
       },
       (error) => {
-        resetToken();
+        //RESET TOKEN
+        // resetToken();
         return Promise.reject(error);
       }
     );
@@ -146,3 +147,4 @@ export const logout = () => {
   localStorage.removeItem(CUSTOMER);
 };
 export default fetchWithToken;
+

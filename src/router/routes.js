@@ -40,6 +40,7 @@ export default [
           // footer: null,
         },
       },
+     
       {
         path: 'product/:productSlug/:sku',
         name: 'product',
@@ -131,6 +132,7 @@ export default [
             name: 'account',
             component: TabAccountDetails,
           },
+          
           {
             path: 'changepassword',
             name: 'changepassword',
@@ -165,6 +167,7 @@ export default [
           footer: Footer,
         },
       },
+      
     ],
   },
 ];

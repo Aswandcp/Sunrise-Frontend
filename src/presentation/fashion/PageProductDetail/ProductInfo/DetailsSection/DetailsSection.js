@@ -5,13 +5,71 @@ import {
   productAttributes,
 } from 'containers/lib';
 import useLocale from 'hooks/useLocale';
-
+import { CUSTOMER } from '../../../../../constants';
+import { axiosInstance } from '../../../../../sharedaxios/axiosConfig';
+// import axios from 'axios';
 export default {
   props: {
     currentVariant: {
       type: Object,
       required: true,
     },
+  },
+
+  data(){
+    return{
+      reviews:{
+        firstName:'',
+        lastName:'',
+        customerId:'',
+        productId:'',
+        rating:'',
+        review:'',
+
+      },
+      user:{},
+      tabs:['Reviews'],
+            selectedTabs:'Reviews'
+    } 
+  },
+
+  methods:{
+    addReview(){
+      let customerDetails = JSON.parse(localStorage.getItem(CUSTOMER));
+      console.log(customerDetails);
+      let productId = localStorage.getItem('PRODUCT');
+      
+      axiosInstance(
+        "https://reviewmanagementsystem-production.up.railway.app/reviews/add",
+
+        {
+
+          firstName:customerDetails.firstName,
+          lastName:customerDetails.lastName,
+          customerId:customerDetails.customerId,
+          productId: productId,
+          rating:`${this.reviews.rating}`,
+          review:this.reviews.review,
+        },
+        "POST"
+      ).then((response)=>{
+        console.log(response);
+      }).catch((error)=>{
+        console.log(error);
+      })
+    },
+    
+  },
+  mounted(){
+    let productId = localStorage.getItem('PRODUCT');
+    axiosInstance(`https://reviewmanagementsystem-production.up.railway.app/reviews/getAllReviews/${productId}`,{},"GET")
+    .then((response)=>{
+      console.log(response.data);
+      this.user=response.data;
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
   },
   setup(props) {
     const { t } = useI18n();
@@ -50,12 +108,21 @@ export default {
       copy[index] = !copy[index];
       expanded.value = copy;
     };
+
+   
+    
+    // const handler = ()=>{
+    //   let customerDetails = JSON.parse(localStorage.getItem(CUSTOMER));
+    //   console.log(customerDetails?.customerId);
+    // };
     return {
       expanded,
       attributes,
       openAccordion,
       toggle,
       t,
+      
+      // handler
     };
   },
 };
