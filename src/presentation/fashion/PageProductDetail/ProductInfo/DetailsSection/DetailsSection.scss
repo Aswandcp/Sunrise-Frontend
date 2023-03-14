@@ -180,3 +180,36 @@
   color: #989898;
   font-size: 13px;
 }
+.review-item-container{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+  
+  .review-item-avatar{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgb(206, 197, 197);
+  }
+  .review-item-name{
+    font-weight: 600;
+    margin-left: 5px;
+    width: max-content;
+  }
+  .review-item-user{
+    display: flex;
+    align-items: center;
+  }
+  .review-item-content{
+    padding-left: 50px;
+    .dl-icon-star{
+      margin-top: -5px;
+    margin-right: 0px;
+    color:goldenrod;
+    }
+  }
+  
+
+}
+

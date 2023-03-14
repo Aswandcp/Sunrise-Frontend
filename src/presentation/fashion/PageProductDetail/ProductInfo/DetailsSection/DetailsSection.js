@@ -59,10 +59,17 @@ export default {
       })
     },
     
+      removeElement : function(item){
+          this.item.$delete(item);
+      }
+    
+    
   },
+  
+
   mounted(){
-    let productId = localStorage.getItem('PRODUCT');
-    axiosInstance(`https://reviewmanagementsystem-production.up.railway.app/reviews/getAllReviews/${productId}`,{},"GET")
+    // let productId = localStorage.getItem('PRODUCT');
+    axiosInstance("https://reviewmanagementsystem-production.up.railway.app/reviews/getAllReviews",{},"GET")
     .then((response)=>{
       console.log(response.data);
       this.user=response.data;

@@ -95,12 +95,21 @@
           "
           :class="{ show: expanded[2] }"
         > 
-        <tbody>
-          <tr>
-            <td>{{ user.review }}</td>
-            <td>{{ user.rating }}</td>
-          </tr>
-        </tbody>
+        
+          
+            <div  class="review-item-container" v-for="item in user" :key="item.customerId">
+            <div class="review-item-user"><div class="review-item-avatar"></div><div class="review-item-name">{{ item.customerId }}</div></div> 
+             <div class="review-item-content"> <i class="dl-icon-star" v-for="index in parseInt( item.rating)" :key="index"></i> </div>
+             <div class="review-item-content"> {{ item.review }}</div>
+             
+             <!-- <button v-on:click="removeElement(item)">remove</button>
+             <button @click="$delete(item)">remove</button> -->
+             </div>
+
+            <!-- <td>{{ user.review }}</td>
+            <td>{{ user.rating }}</td> -->
+          
+        
          <!-- <div class="panel-body">
             <ul>
       <li v-for="reviews in reviews" :key="reviews.customerId">
