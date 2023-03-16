@@ -98,8 +98,12 @@
         
           
             <div  class="review-item-container" v-for="item in user" :key="item.customerId">
-            <div class="review-item-user"><div class="review-item-avatar"></div><div class="review-item-name">{{ item.customerId }}</div></div> 
-             <div class="review-item-content"> <i class="dl-icon-star" v-for="index in parseInt( item.rating)" :key="index"></i> </div>
+            <div class="review-item-user"><div class="review-item-avatar"></div><div class="review-item-name">{{ item.firstName }}</div></div> 
+             <!-- <div class="review-item-content"> <i class="dl-icon-star" v-for="index in parseInt( item.rating)" :key="index"></i> </div> -->
+             <!-- <div class="review-item-content" >{{  item.rating }} </div> -->
+             <!-- <star-rating >{{  item.rating }}</star-rating> -->
+              <star-rating v-model="rating" :max-rating="5" :star-size="30" :active-color="'gold'" :inactive-color="'gray'"></star-rating>
+
              <div class="review-item-content"> {{ item.review }}</div>
              
              <!-- <button v-on:click="removeElement(item)">remove</button>
@@ -200,6 +204,9 @@
             <!-- @click="handler" // after button put this --> 
           </div>
         </form>
+        <div v-if="feedbackSubmitted" class="feedback-message">
+      Thanks for your feedback!
+    </div>
         
     </div>
         <div

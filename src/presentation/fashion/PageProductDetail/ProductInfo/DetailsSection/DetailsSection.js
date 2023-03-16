@@ -7,13 +7,16 @@ import {
 import useLocale from 'hooks/useLocale';
 import { CUSTOMER } from '../../../../../constants';
 import { axiosInstance } from '../../../../../sharedaxios/axiosConfig';
-// import axios from 'axios';
+import StarRating from 'vue-star-rating';
 export default {
   props: {
     currentVariant: {
       type: Object,
       required: true,
     },
+    components: {
+      StarRating
+    }
   },
 
   data(){
@@ -26,19 +29,26 @@ export default {
         rating:'',
         review:'',
 
+
       },
       user:{},
-      tabs:['Reviews'],
-            selectedTabs:'Reviews'
+      // tabs:['Reviews'],
+      //       selectedTabs:'Reviews'
+      feedbackSubmitted: false,
+      
     } 
   },
 
   methods:{
+    
     addReview(){
       let customerDetails = JSON.parse(localStorage.getItem(CUSTOMER));
       console.log(customerDetails);
       let productId = localStorage.getItem('PRODUCT');
-      
+      this.feedbackSubmitted = true;
+      // setTimeout(() => {
+      //   this.feedbackSubmitted = false;
+      // }, 3000);
       axiosInstance(
         "https://reviewmanagementsystem-production.up.railway.app/reviews/add",
 
@@ -59,17 +69,19 @@ export default {
       })
     },
     
-      removeElement : function(item){
-          this.item.$delete(item);
-      }
-    
+      // removeElement : function(item){
+      //     this.item.$delete(item);
+      // }
+      
     
   },
   
 
+  
+
   mounted(){
-    // let productId = localStorage.getItem('PRODUCT');
-    axiosInstance("https://reviewmanagementsystem-production.up.railway.app/reviews/getAllReviews",{},"GET")
+    let productId = localStorage.getItem('PRODUCT');
+    axiosInstance(`https://reviewmanagementsystem-production.up.railway.app/reviews/getAllReviews/${productId}`,{},"GET")
     .then((response)=>{
       console.log(response.data);
       this.user=response.data;
