@@ -188,6 +188,7 @@
             <div class="row"> 
               <label for="review">Comment:</label>
               <label>asfgfdghgfhyghj</label>
+              <label>fdghfgjgyjyhdfgdsfgdfh</label>
               <textarea id="review" v-model="reviews.review"></textarea>
           </div>
           <div class="row">
