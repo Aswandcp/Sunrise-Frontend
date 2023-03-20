@@ -45,7 +45,7 @@ export default {
       let customerDetails = JSON.parse(localStorage.getItem(CUSTOMER));
       console.log(customerDetails);
       let productId = localStorage.getItem('PRODUCT');
-      this.feedbackSubmitted = true;
+      // this.feedbackSubmitted = true;
       // setTimeout(() => {
       //   this.feedbackSubmitted = false;
       // }, 3000);
