@@ -1,4 +1,10 @@
 
+import { placeholder } from '@babel/types';
+
+
+import { placeholder } from '@babel/types';
+
+
 
 <style src="./DetailsSection.scss" lang="scss" scoped></style>
 <i18n src="./DetailsSection.txt" lang="yaml"></i18n>
@@ -192,7 +198,7 @@
           </div>
           <div class="row">
             <label for="rating">Rating:</label>
-            <select id="rating" v-model.number="reviews.rating">
+            <select id="rating" :placeholder="[[your ]]"  v-model.number="reviews.rating">
               <option>5</option>
               <option>4</option>
               <option>3</option>
