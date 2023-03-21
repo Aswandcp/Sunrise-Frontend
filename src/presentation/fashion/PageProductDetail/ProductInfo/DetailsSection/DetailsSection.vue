@@ -77,8 +77,7 @@ import { placeholder } from '@babel/types';
           </h4>
         </div>
       <div>
-  </div>
-   <div class="panel pro-dec-accordion">
+        <div class="panel pro-dec-accordion">
         <div class="panel-heading">
           <h4 class="panel-title">
             <a
@@ -160,7 +159,7 @@ import { placeholder } from '@babel/types';
  </div>
    
    <div class="panel pro-dec-accordion">
-        <div class="panel-heading">
+        <!-- <div class="panel-heading">
           <h4 class="panel-title">
             <a
               href="#"
@@ -171,7 +170,7 @@ import { placeholder } from '@babel/types';
               {{ t('Add Reviews') }}
             </a>
           </h4>
-        </div>
+        </div> -->
         <div
           data-parent="#accordion1"
           id="pro-dec-accordion3"
@@ -187,18 +186,18 @@ import { placeholder } from '@babel/types';
           </div>
         </div>
       </div> 
-
-
         <div>
           <form class="review-form" >
-            <div class="row"> 
-              <label for="review">Comment:</label>
+            <div class="rows" > 
+               <label for="review"  >Comment:</label>
               
               <textarea id="review" v-model="reviews.review"></textarea>
+              
           </div>
-          <div class="row">
+          <div class="rows">
             <label for="rating">Rating:</label>
-            <select id="rating" :placeholder="[[your ]]"  v-model.number="reviews.rating">
+            <select id="rating"  v-model.number="reviews.rating">
+              <option value="" disabled selected>Your Rating</option>
               <option>5</option>
               <option>4</option>
               <option>3</option>
@@ -206,16 +205,20 @@ import { placeholder } from '@babel/types';
               <option>1</option>
             </select>
           </div>
-          <div class="row">
+          <br>
+          <div class="rows">
             <button type="button" v-on:click="addReview" >Submit</button>
             <!-- @click="handler" // after button put this --> 
           </div>
+          <div v-if="feedbackSubmitted" class="feedback-message">
+           Thanks for your feedback!
+          </div>
         </form>
-        <div v-if="feedbackSubmitted" class="feedback-message">
-      Thanks for your feedback!
-    </div>
-        
-    </div>
+    </div>  
+
+
+  </div>
+
         <div
           data-parent="#accordion1"
           id="pro-dec-accordion2"
