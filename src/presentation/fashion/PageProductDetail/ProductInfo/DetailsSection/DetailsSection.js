@@ -7,16 +7,16 @@ import {
 import useLocale from 'hooks/useLocale';
 import { CUSTOMER } from '../../../../../constants';
 import { axiosInstance } from '../../../../../sharedaxios/axiosConfig';
-import StarRating from 'vue-star-rating';
+// import StarRating from 'vue-star-rating';
 export default {
   props: {
     currentVariant: {
       type: Object,
       required: true,
     },
-    components: {
-      StarRating
-    }
+    // components: {
+    //   StarRating
+    // }
   },
 
   data(){
