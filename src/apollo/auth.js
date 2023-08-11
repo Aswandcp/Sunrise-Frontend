@@ -88,7 +88,7 @@ export const fetchWithToken = (url, options) => {
       },
       (error) => {
         // RESET TOKEN
-        // resetToken();
+        resetToken();
         return Promise.reject(error);
       }
     );
