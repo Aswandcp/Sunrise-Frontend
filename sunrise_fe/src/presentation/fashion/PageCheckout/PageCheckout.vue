@@ -24,12 +24,13 @@
             <div class="col-lg-5">
               <OrderOverview
                 @update-shipping="updateShippingMethod"
-                @complete-order="placeOrder"
+                @complete-order="goCheckout"
                 @payment-changed="paymentChanged"
                 :paymentMethod="paymentMethod"
                 :showError="showError"
                 :cart="cart"
               />
+              
               <ServerError
                 :error="error"
                 class="server-error"

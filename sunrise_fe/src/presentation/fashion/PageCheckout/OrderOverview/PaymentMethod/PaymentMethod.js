@@ -1,16 +1,16 @@
 import { onMounted, shallowRef, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 const paymentMethods = [
-  {
-    name: 'card',
-    description: 'creditCard',
-    image: 'CREDIT CARDS',
-  },
-  {
-    name: 'paypal',
-    description: 'PayPal',
-    image: 'PayPal',
-  },
+  // {
+  //   name: 'card',
+  //   description: 'creditCard',
+  //   image: 'CREDIT CARDS',
+  // },
+  // {
+  //   name: 'paypal',
+  //   description: 'PayPal',
+  //   image: 'PayPal',
+  // },
 ];
 export default {
   props: {

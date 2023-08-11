@@ -13,7 +13,7 @@ const config = {
     auth: {
       host:
         getEnv('VUE_APP_CT_AUTH_HOST') ||
-        'https://auth.europe-west1.gcp.commercetools.com',
+        'https://auth.australia-southeast1.gcp.commercetools.com',
       projectKey:
         getEnv('VUE_APP_CT_PROJECT_KEY') || 'sunrise-spa',
       credentials: {
@@ -37,7 +37,7 @@ const config = {
     },
     api:
       getEnv('VUE_APP_CT_API_HOST') ||
-      'https://api.europe-west1.gcp.commercetools.com',
+      'https://api.australia-southeast1.gcp.commercetools.com',
   },
   languages: {
     en: 'English',

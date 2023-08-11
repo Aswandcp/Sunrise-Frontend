@@ -15,5 +15,5 @@ variable "resource" {
 variable "region" {
   description = "The region of the cloud run service"
   type=string
-  default="europe-west1"
+  default="australia-southeast1"
 }
