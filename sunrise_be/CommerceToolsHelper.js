@@ -19,7 +19,7 @@ async function createCtClient() {
   const client = createClient({
     middlewares: [
       createAuthMiddlewareForClientCredentialsFlow({
-        host: process.env.VUE_APP_CT_AUTH_URL,
+        host: process.env.VUE_APP_CT_AUTH_HOST,
         projectKey: process.env.VUE_APP_CT_PROJECT_KEY,
         credentials: {
           clientId: process.env.VUE_APP_CT_CLIENT_ID,
@@ -30,7 +30,7 @@ async function createCtClient() {
         fetch,
       }),
       createHttpMiddleware({
-        host: process.env.VUE_APP_CT_API_URL,
+        host: process.env.VUE_APP_CT_API_HOST,
         includeResponseHeaders: true,
         includeOriginalRequest: true,
         maskSensitiveHeaderData: true,
