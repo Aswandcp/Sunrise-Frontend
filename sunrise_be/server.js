@@ -38,7 +38,7 @@ dotenv.config();
 const STRIPE_KEY = process.env.VUE_APP_SK;
 const STRIPE_ADMIN = process.env.VUE_APP_ADMIN;
 // const PORT = process.env.VUE_APP_PORT;
-// const BASE_URL = process.env.VUE_APP_BASE_URL;
+const VUE_APP_BASE_URL = process.env.VUE_APP_BASE_URL;
 // console.log(process.env);
 const stripe = new Stripe(STRIPE_KEY);
 
