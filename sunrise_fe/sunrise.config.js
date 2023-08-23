@@ -34,6 +34,11 @@ const config = {
           'manage_my_shopping_lists:sunrise-spa ' +
           'manage_orders:sunrise-spa ' +
           'create_anonymous_token:sunrise-spa',
+
+          
+
+
+
     },
     api:
       getEnv('VUE_APP_CT_API_HOST') ||

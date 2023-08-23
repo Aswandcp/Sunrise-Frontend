@@ -3,6 +3,7 @@ import { createAuthMiddlewareForClientCredentialsFlow } from "@commercetools/sdk
 import { createHttpMiddleware } from "@commercetools/sdk-middleware-http";
 import { createRequestBuilder } from "@commercetools/api-request-builder";
 
+
 import fetch from "node-fetch";
 
 let requestBuilder;

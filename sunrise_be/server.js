@@ -216,8 +216,8 @@ app.post("/create-checkout-session", async (req, res) => {
       mode: "payment",
       customer: ctCustomer.externalId,
       line_items: items,
-      // success_url: process.env.VUE_APP_CT_API_URL + "/confirm?checkout_session={CHECKOUT_SESSION_ID}",
-      success_url:"http://localhost:8080/DE/en",
+      success_url: process.env.VUE_APP_URL + "/confirm?checkout_session={CHECKOUT_SESSION_ID}",
+      // success_url:"http://localhost:8080/DE/en",
       cancel_url: process.env.VUE_APP_CT_API_URL,
       metadata: { summary: summary },
       payment_intent_data:{
