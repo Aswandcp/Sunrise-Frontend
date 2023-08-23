@@ -43,7 +43,7 @@ const STRIPE_ADMIN = process.env.VUE_APP_ADMIN;
 const stripe = new Stripe(STRIPE_KEY);
 
 /* ------ SETUP WEBHOOK ON START------ */
-const WEBHOOK_URL = BASE_URL + "/events";
+const WEBHOOK_URL = VUE_APP_BASE_URL + "/events";
 const WEBHOOK_EVENTS = [
   "payment_intent.payment_failed",
   "payment_intent.succeeded",
