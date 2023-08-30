@@ -59,15 +59,15 @@
           data-test="shipping-methods"
         />
       </div> -->
-      <PaymentMethod
+      <!-- <PaymentMethod
         data-test="payment-methods"
         v-bind:amount="cart.totalPrice"
         v-on:card-paid="cardPaid"
         :paymentMethod="paymentMethod"
         @payment-changed="paymentChanged"
         :key="cart.totalPrice.centAmount"
-      />
-      <div class="your-order-info order-total">
+      /> -->
+      <!-- <div class="your-order-info order-total">
         <ul>
           <li class="bold-text">
             {{ t('total') }}
@@ -79,7 +79,7 @@
             /></span>
           </li>
         </ul>
-      </div>
+      </div> -->
 
       <!-- <div class="condition-wrap">
         <p>
