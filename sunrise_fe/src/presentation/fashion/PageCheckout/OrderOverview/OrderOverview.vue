@@ -49,7 +49,7 @@
       <!-- if you have adyen payment then you can't cahnge -->
       <!-- shipping method after you paid -->
       <!-- v-if="!paid" -->
-      <!-- <div class="checkout-shipping-content">
+      <div class="checkout-shipping-content">
         <div class="shipping-content-left">
           <span class="bold-text">{{ t('shipping') }}</span>
         </div>
@@ -58,7 +58,7 @@
           :cart="cart"
           data-test="shipping-methods"
         />
-      </div> -->
+      </div>
       <PaymentMethod
         data-test="payment-methods"
         v-bind:amount="cart.totalPrice"
