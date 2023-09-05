@@ -439,7 +439,7 @@ app.post("/create-payment-intent", async (req, res) => {
   const currency = req.body.currency;
   const order = await commerceTools.createOrder(cart, "Open");
 
-  let total = cart.totalPrice.centAmount;
+  let subtotal = cart.totalPrice.centAmount;
   let summary = "";
   cart.lineItems.forEach((item) => {
     const price = item.price.value.centAmount;
@@ -447,7 +447,7 @@ app.post("/create-payment-intent", async (req, res) => {
   });
 
   const payload = {
-    amount: total,
+    amount: subtotal,
     currency: currency,
     metadata: {
       summary: summary,
@@ -473,7 +473,7 @@ app.post("/create-payment-intent", async (req, res) => {
   const payment = await commerceTools.createPayment(
     paymentIntent,
     currency,
-    total
+    subtotal
   );
   commerceTools.updatePaymentState("Authorization", paymentIntent);
 
