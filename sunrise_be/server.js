@@ -43,40 +43,40 @@ const VUE_APP_BASE_URL = process.env.VUE_APP_BASE_URL;
 const stripe = new Stripe(STRIPE_KEY);
 
 /* ------ SETUP WEBHOOK ON START------ */
-const WEBHOOK_URL = VUE_APP_BASE_URL + "/events";
-const WEBHOOK_EVENTS = [
-  "payment_intent.payment_failed",
-  "payment_intent.succeeded",
-  "charge.refunded",
-  "charge.dispute.created",
-];
-const webhookEndpoints = await stripe.webhookEndpoints.list();
-const existingWebhook = webhookEndpoints.data.find(
-  ({ url }) => url === WEBHOOK_URL
-);
-if (existingWebhook) {
-  //Add any missing events if webhook created
-  await stripe.webhookEndpoints.update(existingWebhook.id, {
-    enabled_events: WEBHOOK_EVENTS,
-  });
-  console.log("Existing Webhook Found!");
-} else {
-  try {
-    //Create new webhook if none found
-    const webhookEndpoint = await stripe.webhookEndpoints.create({
-      url: WEBHOOK_URL,
-      enabled_events: WEBHOOK_EVENTS,
-    });
-    if (webhookEndpoint) {
-      console.log("Created Webhook!");
-    }
-  } catch (e) {
-    console.log("ERROR creating webhook: " + e.message);
-    console.log(
-      'NOTE: If your REACT_APP_BASE_URL is a local address you may receive a "URL must be publicly accessible" error, this is expected. Please refer to the Testing Webhooks section in the README.md'
-    );
-  }
-}
+// const WEBHOOK_URL = VUE_APP_BASE_URL + "/events";
+// const WEBHOOK_EVENTS = [
+//   "payment_intent.payment_failed",
+//   "payment_intent.succeeded",
+//   "charge.refunded",
+//   "charge.dispute.created",
+// ];
+// const webhookEndpoints = await stripe.webhookEndpoints.list();
+// const existingWebhook = webhookEndpoints.data.find(
+//   ({ url }) => url === WEBHOOK_URL
+// );
+// if (existingWebhook) {
+//   //Add any missing events if webhook created
+//   await stripe.webhookEndpoints.update(existingWebhook.id, {
+//     enabled_events: WEBHOOK_EVENTS,
+//   });
+//   console.log("Existing Webhook Found!");
+// } else {
+//   try {
+//     //Create new webhook if none found
+//     const webhookEndpoint = await stripe.webhookEndpoints.create({
+//       url: WEBHOOK_URL,
+//       enabled_events: WEBHOOK_EVENTS,
+//     });
+//     if (webhookEndpoint) {
+//       console.log("Created Webhook!");
+//     }
+//   } catch (e) {
+//     console.log("ERROR creating webhook: " + e.message);
+//     console.log(
+//       'NOTE: If your REACT_APP_BASE_URL is a local address you may receive a "URL must be publicly accessible" error, this is expected. Please refer to the Testing Webhooks section in the README.md'
+//     );
+//   }
+// }
 
 /* ------ BUSINESS MODEL ------ */
 app.get("/settings", async (req, res) => {
@@ -230,9 +230,9 @@ app.post("/create-checkout-session", async (req, res) => {
       shipping_address_collection: {
         allowed_countries: [],
       },
-      // customer_update: {
-      //   shipping: "auto",
-      // },
+      customer_update: {
+        shipping: "auto",
+      },
     };
     if (currency === "usd") {
       payload.payment_method_types = ["card", "afterpay_clearpay"];
