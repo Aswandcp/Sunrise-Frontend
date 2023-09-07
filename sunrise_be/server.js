@@ -230,9 +230,9 @@ app.post("/create-checkout-session", async (req, res) => {
       shipping_address_collection: {
         allowed_countries: [],
       },
-      customer_update: {
-        shipping: "auto",
-      },
+      // customer_update: {
+      //   shipping: "auto",
+      // },
     };
     if (currency === "usd") {
       payload.payment_method_types = ["card", "afterpay_clearpay"];
