@@ -203,6 +203,7 @@ app.post("/create-checkout-session", async (req, res) => {
           
           images: [item.variant.images[0].url],
           
+          
         },
         
       },
@@ -230,9 +231,7 @@ app.post("/create-checkout-session", async (req, res) => {
       shipping_address_collection: {
         allowed_countries: [],
       },
-      // customer_update: {
-      //   shipping: "auto",
-      // },
+      
     };
     if (currency === "usd") {
       payload.payment_method_types = ["card", "afterpay_clearpay"];
@@ -434,6 +433,7 @@ app.get("/session/:id", async (req, res) => {
 /* ------ ELEMENTS AND UPE ------ */
 app.post("/create-payment-intent", async (req, res) => {
   const cart = req.body.cart;
+  console.log(req.body);
   const ctCustomerId = req.body.customer;
   const ctCustomer = await commerceTools.getCustomer(ctCustomerId);
   const currency = req.body.currency;

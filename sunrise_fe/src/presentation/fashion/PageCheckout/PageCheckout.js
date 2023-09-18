@@ -1,6 +1,7 @@
 import BillingDetails from './BillingDetails/BillingDetails.vue';
 import OrderOverview from './OrderOverview/OrderOverview.vue';
 import ServerError from 'presentation/components/ServerError/ServerError.vue';
+// import useShippingMethods from './ct/useShippingMethods';
 import { shallowRef, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
@@ -70,6 +71,9 @@ export default {
     const goCheckout = async () => {
       try {
         const stripe = await loadStripe(`${process.env.VUE_APP_PK}`);
+        // const { total } =
+      // useShippingMethods(props.cart.cartId);
+      //  console.log(total);
         // console.log(process.env.VUE_APP_CT_API_URL,"hallo");
         console.log(cart,"cart");
         const response = await fetch(`${process.env.VUE_APP_API_URL}/create-checkout-session`, {
@@ -113,6 +117,8 @@ export default {
     
 
     //@todo: what happened to the payment method passed to this?
+
+    
     const placeOrder = () => {
       if (!validBillingForm.value) {
         showError.value = true;
