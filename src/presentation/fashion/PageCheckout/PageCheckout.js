@@ -93,8 +93,6 @@ export default {
               summary:{value:{summary :item.lineId + "  [" + item.name + "] "}},
               ...item
 
-
-
             }})},
             customer: customer._rawValue.customerId,
             currency: currency._rawValue, 
